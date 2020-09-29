@@ -22,6 +22,8 @@ During the exploration phase we identified couple of issues and here is a report
 | pickup/dropoff_datetime | Range extends selective month. | Restrict dates for each month. Remove other dates. |      |
 | tip_amount              | Negative values on the tips.   | Keep only positive tip amounts                     |      |
 | fare_amount             | Extremely large values         |                                                    |      |
+| tip_amount              | Extremely large values         |                                                    |      |
+| trip_distance           | Negative values                |                                                    |      |
 
 
 By observing the description of our sample dataframe we can identiyf the problems 
@@ -232,14 +234,28 @@ Credit card     4
 
 
 
+####  Passengers
+
+Majority of trips are done by individuals.
+
+<div style="text-align:center">
+    <p align="center">
+        <img  style="width:500px;height:auto" src="../outputs/images/passenger_count.png">
+    </p>
+    <p align="center" >  Figure X: Passenger Count.  </p>
+</div>
+
 
 
 
 
 ## Chapter 2. Tip Prediction 
 
+Moving to the modelling task, we can search for underlying relations between our available features and our target variable. 
 
-Having in mind the modeling part, we can also search for any underlying relation between the tip amount and some features of our data set.
+
+
+
 
 <div style="text-align:center">
     <p align="center">
@@ -247,3 +263,83 @@ Having in mind the modeling part, we can also search for any underlying relation
     </p>
     <p align="center" >  Figure X: Tip Correlation Matrix  </p>
 </div>
+
+
+
+Since the nature of tipping has to do with the provided service, there should be a relation of time duration and distance travelled with the amount of tip that each passenger tips. Though wanted to take a more spatial approach to the problem my first thought was to create a naive ensemble -like model that can be represented as a graph approach. 
+
+So instead of building one general model that tries to predict the tip, my idea was to build one model for each edge of the unique origin - destination taxi zone tuple.  I started  by taking only into consideration the fare_amount .
+
+Since there were around 20k of unique od trips, I decided to create a base model from my data, and then create a dictionary of spatially-localised models whenever my count tris were at least 1k. 
+
+The results from my general base model were significant. 
+
+```
+Coefficients: 0.17937802
+Mean squared error: 2.28
+Coefficient of determination: 0.66
+```
+
+<div style="text-align:center">
+    <p align="center">
+        <img  style="width:500px;height:auto" src="../outputs/images/base_model_perf.png">
+    </p>
+    <p align="center" >  Figure X: Linear Regression - Base model  </p>
+</div>
+
+with a relatively small mean squared error and an above the average coefficient of determination, the model captures the underlying trend between the two variables. 
+
+<div style="text-align:center">
+    <p align="center">
+        <img  style="width:500px;height:auto" src="../outputs/images/residuals_general_bm.png">
+    </p>
+    <p align="center" >  Figure X: Linear Regression - Base model - Residuals  </p>
+</div>
+
+And the residuals, seems to be homoscedatic
+
+Afterwards, I started building the local models for the origin -destination unique tuples. For each tuple I was creating a new linear regression model, exporting the MSE and R2 scores and storing the coefficient and interceptor of the model. Results was stored in a dictionary which will later can be used as rule book defining if the trip will be predicted using the local or the general(base) model. 
+
+
+Example of dict entry:
+
+> ```
+> (48, 142): {'mse_score': 0.3642431990698548,
+>   'r2_score': 0.32618621994085206,
+>   'local_coef': array([0.16808227]),
+>   'local_intercept': 0.40917783327825363,
+>   'mse_score_bm': 0.3639476741199827,
+>   'r2_score_bm': 0.32673291177774455,
+>   'mse_score_mean': 24.28215682609919,
+>   'r2_score_mean': 0.0},
+> ```
+
+
+
+We can see how local models ("red") explain better more "unique" origin-destination tuples like the airport to the city trips. Whereas the general model ("blue") explains better inner city trips. 
+
+<div style="text-align:center">
+    <p align="center">
+        <img  style="width:500px;height:auto" src="../outputs/images/regression_results_bm_local.png">
+    </p>
+    <p align="center" >  Figure X: Local vs Base model </p>
+</div>
+
+
+
+In general the approach seems to help in a few origin-destinations tuples.
+
+<div style="text-align:center">
+    <p align="center">
+        <img  style="width:500px;height:auto" src="../outputs/images/local_vs_bm.png">
+    </p>
+    <p align="center" >  Figure X: Local model vs Base model - Residuals  </p>
+</div>
+
+and it would be interesting to see how that can also be improved if we incorporate into the model the temporal natures of each trip. 
+
+> The temporal feature can be introduced in 5-6 time groups and using one-hot to be incorporated in the model. 
+
+
+
+The mean squared error improved only by a tiny fraction of 0.01

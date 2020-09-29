@@ -189,3 +189,42 @@ class Taxidf():
         ax.set_title("Quantile Plotting - Dropoffs")
 
         return axs
+
+
+
+    def graph_representation(self):
+
+
+        node_pos = []
+
+        for i in self.taxi_zones['geometry']:
+            node_pos.append(list(i.centroid.coords)[0])
+                
+        node_dict_pos =dict(zip(self.taxi_zones['LocationID'],node_pos))
+
+        G=nx.MultiDiGraph()
+        G.add_nodes_from(self.taxi_zones['LocationID'])
+        nx.set_node_attributes(G,node_dict_pos,"pos")
+        
+        self.G_main = G 
+        self.pos = node_dict_pos
+
+
+
+    def assign_attributes_to_graph(self,od_tip_data=None,attr_list= ['mean',"max","count","std"]):
+        
+
+        unique_nodes=list(self.taxi_zones['LocationID'].unique())
+        for tupple_od in list(od_tip_data.index):
+            
+            if((tupple_od[0] in unique_nodes) and (tupple_od[1] in unique_nodes)):
+                self.G_main.add_edge(tupple_od[0],tupple_od[1])
+
+        for i in list(self.G_main.edges()):
+            dict_ = dict(od_tip_data.loc[i])
+
+            for attr in attr_list:
+                self.G_main.edges[(i[0],i[1],0)][attr]=dict_[attr]  
+          
+
+    
