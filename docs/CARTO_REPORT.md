@@ -316,6 +316,17 @@ Example of dict entry:
 
 
 
+We could possible run a model for every unique origin-destination tuple, but for this test we only picked the tuples with at least 3000 trip counts. 
+
+From the 182 entries which was tested and we build models for, around 62% performed better than the base model while the 28% perform better with the base model. 
+
+```
+local    114
+bm        68
+```
+
+
+
 We can see how local models ("red") explain better more "unique" origin-destination tuples like the airport to the city trips. Whereas the general model ("blue") explains better inner city trips. 
 
 <div style="text-align:center">
@@ -325,9 +336,6 @@ We can see how local models ("red") explain better more "unique" origin-destinat
     <p align="center" >  Figure X: Local vs Base model </p>
 </div>
 
-
-
-In general the approach seems to help in a few origin-destinations tuples.
 
 <div style="text-align:center">
     <p align="center">
@@ -342,4 +350,27 @@ and it would be interesting to see how that can also be improved if we incorpora
 
 
 
-The mean squared error improved only by a tiny fraction of 0.01
+The performance of the localised models, varied with the best performed model to have 0.1 MSE and max 7.8 while the mean was around 0.65.
+
+As an extra step, I have also tested a regressor using random forest  which in the test data frame, performed with MSE of 2.14. Using an optimiser we can possibly tune the model's parameters and push its performance further. The drawback on these types of models in a production stage depends on the nature of the predicting variable, and the need for internal-external auditing. In our case tip models should not require an open-box model function and we could benefit from more complex and deep solutions.  
+
+As extra steps, I believe that my approach can be modified, introducing other models and extra features per localised tuple, ending most probably to better performance and more accurate predictions.
+
+### Deployment 
+
+<div style="text-align:center">
+    <p align="center">
+        <img  style="width:auto;height:auto" src="images/deployment_draft.png">
+    </p>
+    <p align="center" >  Figure X: Deployment draft  </p>
+</div>
+
+
+
+To make decisions about the deployment and the architecture of the API, db selection, cloud provider we need to have a better understanding of the use of the model-system. 
+
+Here I tried to draft some initial thoughts of how the system could look like. The user can either request a tip prediction from our deployed model or in case their connection is problematic they could probably default to a stored result table/model build in the app. An internal loop powered by some predefined statements can trigger the training of the model and update the existing one in case the new model performs better. 
+
+Technologies that might be used to build the API could possibly be a mix of Flask or Django for the API, a task manager for the incoming traffic such as Celery, and a message broker as Redis. For the model we can store the weights in NoSQL database or in case of most complex deep models we can store weights in a file storage.
+
+ 
