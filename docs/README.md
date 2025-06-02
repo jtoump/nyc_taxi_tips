@@ -27,7 +27,7 @@ There are some critical issues on the given dataset, which are adressed as follo
 |Negative Values on fares,tips amounts,tolls and extra | Filtered to retain only positive entries |
 |Wrong dates in the dataset (wrong year and months) | Filter only the ones targeted        |
 |Vendor IDs are not concistent across different datasets| Subset selected for consistency
- |
+
 
 
 ## Feature Engineering
@@ -46,10 +46,26 @@ To explore more options while modeling there are a number of new features that a
 
 ## Data exploration 
 
+###  Tip Amount
 
 
 
+<div style="text-align:center">
+    <p align="center">
+        <img  style="width:500px;height:auto" src="../outputs/new_images/fare_tip_uncolored.png">
+    </p>
+</div>
 
+
+<div style="text-align:center">
+    <p align="center">
+        <img  style="width:500px;height:auto" src="../outputs/new_images/fare_tip.png">
+    </p>
+    <p align="center" >  Figure 0: Tip to Fare amount.  </p>
+</div>
+
+
+It is very interesting to observe how the tip amount relates to the fare amount. In the first plot, we can immediately notice several horizontal lines spaced evenly apart — these correspond to whole-dollar tip amounts such as $5, $10, $15, $20, and so on. Another notable pattern is the presence of diagonal lines, which represent percentage-based tips. The most prominent of these is around 25%, but other tipping rates like 15%, 20%, and 30% are also clearly visible.
 
 ### Spatial Distribution
 
@@ -100,8 +116,6 @@ Figure 2 illustrates the imbalance between pickups and drop-offs. This might be 
 
 
 
-
-
 <div style="text-align:center">
     <p align="center">
         <img  style="width:500px;height:auto" src="../outputs/images/temporal_distribution.png">
@@ -141,7 +155,7 @@ Trip volume varies :
 
 ## Modeling Experiments
 
-For better tracking and reproducability all experiments were tracked using MLflow below there are two comperative plots of R² and MSE on the test sets, showing the performance of each model
+For better tracking and reproducability all experiments were tracked using MLflow below there are two comperative plots of R² and MSE on the test sets, showing the performance of each model.
 
 
 <div style="text-align:center">
@@ -160,14 +174,8 @@ For better tracking and reproducability all experiments were tracked using MLflo
 
 
 
-The best-performing model was CatBoostRegressor, which achieved strong predictive accuracy:
+`After many experiments the best performance models is the CatBoostRegressor and the LinearRegressor. On the pipeline under scripts/model.py I have implemented the CatBoostRegressor`
 
-```
-MAE: 0.474
-MSE: 1.051
-RMSE: 1.025
-R²: 0.933
-```
 
 
 ### Linear Models
@@ -234,18 +242,15 @@ tip_amount = 0.9210 + 0.1745*fare_amount + 0.0000*Airport_flag + 0.0801*trip_dis
 
 the performance was slightly worst in terms of coverage, the results show the significance of fare_amount and trip_distance features.
 
-
 ### HistGradientBoostingRegressor
 
-`
-MAE: 0.074
-MSE: 0.040
-RMSE: 0.200
-R²: 0.921
-`
+Including PU/DU Location information
+
+`HGBRegressor          | MSE: 0.222 | R²: 0.565`
 
 ### RandomForestRegressor
-`RFRegressor          | MSE: 1.5760 | R²: 0.8783`
+
+`RFRegressor          | MSE: 3.6061 | R²: 0.6995`
 
 ### CatBoostRegressor
 
@@ -288,10 +293,16 @@ Starting to conduct a basic spatial correlation analysis, further analysis needs
 
 ## Additional analyis
 
-Use of GeoGNN 
-
+- Use of GATConv with torch geometric to implement a GNN model. 
+- Reframe the problem to a classification + regression, the first model should be able to recognise if the trip will end up more probably to a pre set amount of tip ,to a percentage of the fare amount or to other option.  
 
 ## Further Steps
+
+- tune hyperparameters with optuna
+
+- GNN
+
+- Explorehow LLMs could potentially work with predicting the tip amount, it is interesting to build a vector database / RAG system that draws information about the origin burough of the trip to the destination with some additional data about the average trip between the specific PU-DO location. Advantages in spatial perception models should be concidered.
 
 - Integrate ACS & POI data to capture socio-economic and behavioral patterns across zones (e.g., median income, commercial density).
 
