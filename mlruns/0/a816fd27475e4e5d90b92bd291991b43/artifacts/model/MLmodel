@@ -1,0 +1,29 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.7
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+is_signature_from_type_hint: false
+mlflow_version: 2.22.0
+model_size_bytes: 929163
+model_uuid: 16cc3816e6074a30b8405deae13b86de
+prompts: null
+run_id: a816fd27475e4e5d90b92bd291991b43
+signature:
+  inputs: '[{"type": "double", "name": "trip_distance", "required": true}, {"type":
+    "long", "name": "duration_s", "required": true}, {"type": "double", "name": "fare_amount",
+    "required": true}, {"type": "double", "name": "passenger_count", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-05-30 09:55:55.500660'

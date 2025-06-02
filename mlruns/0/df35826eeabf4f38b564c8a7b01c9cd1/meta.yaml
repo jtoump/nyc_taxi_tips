@@ -1,0 +1,16 @@
+artifact_uri: file:///media/itoumpalidis/SlowHDD/linux_part/t2l/nyc_taxi_tips/mlruns/0/df35826eeabf4f38b564c8a7b01c9cd1/artifacts
+deleted_time: 1748794967161
+end_time: 1748605238064
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: df35826eeabf4f38b564c8a7b01c9cd1
+run_name: mysterious-shoat-441
+run_uuid: df35826eeabf4f38b564c8a7b01c9cd1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748605238008
+status: 4
+tags: []
+user_id: itoumpalidis

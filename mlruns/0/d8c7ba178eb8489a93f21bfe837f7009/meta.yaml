@@ -1,0 +1,16 @@
+artifact_uri: file:///media/itoumpalidis/SlowHDD/linux_part/t2l/nyc_taxi_tips/mlruns/0/d8c7ba178eb8489a93f21bfe837f7009/artifacts
+deleted_time: 1748794897463
+end_time: 1748605992209
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: d8c7ba178eb8489a93f21bfe837f7009
+run_name: sincere-sponge-647
+run_uuid: d8c7ba178eb8489a93f21bfe837f7009
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748605990202
+status: 3
+tags: []
+user_id: itoumpalidis

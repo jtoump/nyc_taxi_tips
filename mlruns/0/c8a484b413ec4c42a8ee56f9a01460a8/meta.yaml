@@ -1,0 +1,16 @@
+artifact_uri: file:///media/itoumpalidis/SlowHDD/linux_part/t2l/nyc_taxi_tips/mlruns/0/c8a484b413ec4c42a8ee56f9a01460a8/artifacts
+deleted_time: 1748794971959
+end_time: 1748605217266
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: c8a484b413ec4c42a8ee56f9a01460a8
+run_name: burly-hen-423
+run_uuid: c8a484b413ec4c42a8ee56f9a01460a8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748605217015
+status: 4
+tags: []
+user_id: itoumpalidis

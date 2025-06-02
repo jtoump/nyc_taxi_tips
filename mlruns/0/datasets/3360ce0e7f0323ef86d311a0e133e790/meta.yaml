@@ -1,0 +1,10 @@
+digest: 40c68d72
+name: dataset
+profile: '{"num_rows": 1826023, "num_elements": 7304092}'
+schema: '{"mlflow_colspec": [{"type": "double", "name": "trip_distance", "required":
+  true}, {"type": "long", "name": "duration_s", "required": true}, {"type": "double",
+  "name": "fare_amount", "required": true}, {"type": "double", "name": "passenger_count",
+  "required": true}]}'
+source: '{"tags": {"mlflow.user": "itoumpalidis", "mlflow.source.name": "/home/itoumpalidis/anaconda3/envs/mldl/lib/python3.12/site-packages/ipykernel_launcher.py",
+  "mlflow.source.type": "LOCAL"}}'
+source_type: code

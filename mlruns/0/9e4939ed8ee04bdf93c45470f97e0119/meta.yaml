@@ -1,0 +1,16 @@
+artifact_uri: file:///media/itoumpalidis/SlowHDD/linux_part/t2l/nyc_taxi_tips/mlruns/0/9e4939ed8ee04bdf93c45470f97e0119/artifacts
+deleted_time: 1748794928500
+end_time: 1748600354523
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 9e4939ed8ee04bdf93c45470f97e0119
+run_name: resilient-eel-442
+run_uuid: 9e4939ed8ee04bdf93c45470f97e0119
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748600348186
+status: 3
+tags: []
+user_id: itoumpalidis

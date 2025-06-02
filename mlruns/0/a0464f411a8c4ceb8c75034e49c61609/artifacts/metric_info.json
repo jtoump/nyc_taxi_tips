@@ -1,0 +1,4 @@
+{
+  "mean_squared_error_X_test": "mean_squared_error(y_true=___, y_pred=labels_pred)",
+  "r2_score_X_test": "r2_score(y_true=___, y_pred=labels_pred)"
+}

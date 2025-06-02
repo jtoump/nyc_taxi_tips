@@ -1,0 +1,15 @@
+artifact_uri: file:///media/itoumpalidis/SlowHDD/linux_part/t2l/nyc_taxi_tips/mlruns/0/16aff978c8fc4b2cb5009d7fd5fcc87d/artifacts
+end_time: 1748602823503
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 16aff978c8fc4b2cb5009d7fd5fcc87d
+run_name: secretive-toad-995
+run_uuid: 16aff978c8fc4b2cb5009d7fd5fcc87d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748602817028
+status: 3
+tags: []
+user_id: itoumpalidis

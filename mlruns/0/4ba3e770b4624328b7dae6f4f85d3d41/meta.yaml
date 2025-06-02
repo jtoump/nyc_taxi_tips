@@ -1,0 +1,16 @@
+artifact_uri: file:///media/itoumpalidis/SlowHDD/linux_part/t2l/nyc_taxi_tips/mlruns/0/4ba3e770b4624328b7dae6f4f85d3d41/artifacts
+deleted_time: 1748794962552
+end_time: 1748605282386
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 4ba3e770b4624328b7dae6f4f85d3d41
+run_name: peaceful-bug-897
+run_uuid: 4ba3e770b4624328b7dae6f4f85d3d41
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748605282333
+status: 4
+tags: []
+user_id: itoumpalidis

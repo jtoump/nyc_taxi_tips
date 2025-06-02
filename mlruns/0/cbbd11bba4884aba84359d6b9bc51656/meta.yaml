@@ -1,0 +1,16 @@
+artifact_uri: file:///media/itoumpalidis/SlowHDD/linux_part/t2l/nyc_taxi_tips/mlruns/0/cbbd11bba4884aba84359d6b9bc51656/artifacts
+deleted_time: 1748794939556
+end_time: 1748601463356
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: cbbd11bba4884aba84359d6b9bc51656
+run_name: inquisitive-fish-439
+run_uuid: cbbd11bba4884aba84359d6b9bc51656
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748601457041
+status: 3
+tags: []
+user_id: itoumpalidis

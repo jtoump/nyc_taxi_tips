@@ -29,7 +29,7 @@ import numpy as np
 
 
 import matplotlib.pyplot as plt
-import bokeh as bh
+# import bokeh as bh
 
 from datetime import datetime
 
@@ -51,21 +51,21 @@ class Taxidf():
 
         if type(src_path)==list :
             for path_ in src_path:
-                temp_df=pd.read_csv(path_)
+                temp_df=pd.read_parquet(path_)
                 
                 if(sample_fraction is not None):
                     temp_df = temp_df.sample(frac=sample_fraction)
                 
-                self.taxi_data=self.taxi_data.append(temp_df)
+                self.taxi_data=pd.concat([self.taxi_data,temp_df])
                     
 
         else:
             
-            temp_df=pd.read_csv(src_path)
+            temp_df=pd.read_parquet(src_path)
             if(sample_fraction is not None):
                 temp_df = temp_df.sample(frac=sample_fraction)
 
-            self.taxi_data=self.taxi_data.append(temp_df)
+            self.taxi_data=pd.concat([self.taxi_data,temp_df])
 
 
 
@@ -74,7 +74,7 @@ class Taxidf():
 
         self.taxi_zones_shp_path = taxi_zones_shp_path
 
-
+        self.convert_dates()
     def compute_taxi_zones(self):
         """ Create taxi zone geodf
         """
@@ -94,6 +94,53 @@ class Taxidf():
             self.taxi_zones['taxi_demand']=self.taxi_zones['PULocationID']-self.taxi_zones['DOLocationID']
             self.taxi_zones['taxi_activity']=self.taxi_zones['PULocationID']+self.taxi_zones['DOLocationID']
             self.taxi_zones['taxi_demand_class']=self.taxi_zones['taxi_demand'].apply(lambda x: 1 if x>0 else 0)
+
+    def compute_taxi_zones_new(self):
+        """Create taxi zones GeoDataFrame with pickup/dropoff counts and demand/activity metrics."""
+    
+        if self.taxi_zones_shp_path is None:
+            return
+    
+        # Load taxi zones shapefile
+        self.taxi_zones = gpd.read_file(self.taxi_zones_shp_path)
+    
+        # Count pickups per zone (number of trips starting in each zone)
+        pu_counts = (
+            self.taxi_data.groupby('PULocationID')
+            .size()
+            .rename('pickup_count')
+            .reset_index()
+        )
+    
+        # Count dropoffs per zone (number of trips ending in each zone)
+        do_counts = (
+            self.taxi_data.groupby('DOLocationID')
+            .size()
+            .rename('dropoff_count')
+            .reset_index()
+        )
+    
+        # Merge pickup and dropoff counts into taxi zones
+        self.taxi_zones = (
+            self.taxi_zones
+            .merge(pu_counts, left_on='LocationID', right_on='PULocationID', how='left')
+            .merge(do_counts, left_on='LocationID', right_on='DOLocationID', how='left')
+        )
+    
+        # Fill missing counts with zero and convert to int
+        for col in ['pickup_count', 'dropoff_count']:
+            self.taxi_zones[col] = self.taxi_zones[col].fillna(0).astype(int)
+    
+        # Calculate demand and activity
+        self.taxi_zones['taxi_demand'] = (
+            self.taxi_zones['pickup_count'] - self.taxi_zones['dropoff_count']
+        )
+        self.taxi_zones['taxi_activity'] = (
+            self.taxi_zones['pickup_count'] + self.taxi_zones['dropoff_count']
+        )
+    
+        # Create demand class: 1 if demand > 0 else 0
+        self.taxi_zones['taxi_demand_class'] = (self.taxi_zones['taxi_demand'] > 0).astype(int)
 
     #### just grouping functions 
     def group_describe(self,grp_columne=['payment_type'],explained_col='tip_amount'):
@@ -137,8 +184,8 @@ class Taxidf():
 
         date_time_cols = ["tpep_pickup_datetime","tpep_dropoff_datetime"]
 
-        for col in date_time_cols:
-            self.taxi_data[col]=self.taxi_data[col].apply(lambda x: datetime.strptime(x, "%Y-%m-%d %H:%M:%S"))
+        # for col in date_time_cols:
+            # self.taxi_data[col]=self.taxi_data[col].apply(lambda x: datetime.strptime(x, "%Y-%m-%d %H:%M:%S"))
 
         self.taxi_data['pu_day']  = self.taxi_data["tpep_pickup_datetime"].apply(lambda x: x.weekday())
         self.taxi_data['pu_hour'] = self.taxi_data["tpep_pickup_datetime"].apply(lambda x: x.hour)
@@ -152,15 +199,15 @@ class Taxidf():
 
 
     def quantile_plotting(self,axs=None):
-        
+        taxi_zones = self.taxi_zones
         if(axs is None):
             fig,axs= plt.subplots(1,2,figsize=(20,20))
 
         ax=axs[0]
 
-        iqr_zones = taxi_zones[taxi_zones['PULocationID'].between(taxi_zones['PULocationID'].quantile(.25), taxi_zones['PULocationID'].quantile(.75), inclusive=True)]
-        iqr_one = taxi_zones[taxi_zones['PULocationID'].between(taxi_zones['PULocationID'].min(), taxi_zones['PULocationID'].quantile(.25), inclusive=True)]
-        iqr_last= taxi_zones[taxi_zones['PULocationID'].between(taxi_zones['PULocationID'].quantile(.75), taxi_zones['PULocationID'].max(), inclusive=True)]
+        iqr_zones = taxi_zones[taxi_zones['PULocationID'].between(taxi_zones['PULocationID'].quantile(.25), taxi_zones['PULocationID'].quantile(.75), inclusive='both')]
+        iqr_one = taxi_zones[taxi_zones['PULocationID'].between(taxi_zones['PULocationID'].min(), taxi_zones['PULocationID'].quantile(.25), inclusive='both')]
+        iqr_last= taxi_zones[taxi_zones['PULocationID'].between(taxi_zones['PULocationID'].quantile(.75), taxi_zones['PULocationID'].max(), inclusive='both')]
 
         iqr_one.plot(color="purple",ax=ax,label="q1",legend=True)
         iqr_zones.plot(color="green",ax=ax,label="q2",legend=True)
@@ -173,9 +220,9 @@ class Taxidf():
         #     ax.annotate(text=str(taxi_zones.iloc[idx]['LocationID']),xy=[geo.x, geo.y], color="blue")
             
 
-        iqr_zones = taxi_zones[taxi_zones['DOLocationID'].between(taxi_zones['DOLocationID'].quantile(.25), taxi_zones['DOLocationID'].quantile(.75), inclusive=True)]
-        iqr_one = taxi_zones[taxi_zones['DOLocationID'].between(taxi_zones['DOLocationID'].min(), taxi_zones['DOLocationID'].quantile(.25), inclusive=True)]
-        iqr_last= taxi_zones[taxi_zones['DOLocationID'].between(taxi_zones['DOLocationID'].quantile(.75), taxi_zones['DOLocationID'].max(), inclusive=True)]
+        iqr_zones = taxi_zones[taxi_zones['DOLocationID'].between(taxi_zones['DOLocationID'].quantile(.25), taxi_zones['DOLocationID'].quantile(.75), inclusive='both')]
+        iqr_one = taxi_zones[taxi_zones['DOLocationID'].between(taxi_zones['DOLocationID'].min(), taxi_zones['DOLocationID'].quantile(.25), inclusive='both')]
+        iqr_last= taxi_zones[taxi_zones['DOLocationID'].between(taxi_zones['DOLocationID'].quantile(.75), taxi_zones['DOLocationID'].max(), inclusive='both')]
         ax=axs[1]
 
         iqr_one.plot(color="purple",ax=ax,label="q1",legend=True)
