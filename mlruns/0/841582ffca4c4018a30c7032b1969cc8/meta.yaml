@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/841582ffca4c4018a30c7032b1969cc8/artifacts
+end_time: 1748865857058
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 841582ffca4c4018a30c7032b1969cc8
+run_name: smiling-squirrel-448
+run_uuid: 841582ffca4c4018a30c7032b1969cc8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748865853154
+status: 3
+tags: []
+user_id: itoumpalidis

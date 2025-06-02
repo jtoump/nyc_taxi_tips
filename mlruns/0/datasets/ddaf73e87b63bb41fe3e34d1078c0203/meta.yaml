@@ -1,0 +1,15 @@
+digest: 4050efed
+name: dataset
+profile: '{"num_rows": 339772, "num_elements": 4077264}'
+schema: '{"mlflow_colspec": [{"type": "double", "name": "fare_amount", "required":
+  true}, {"type": "double", "name": "trip_distance", "required": true}, {"type": "double",
+  "name": "total_amount", "required": true}, {"type": "double", "name": "extra", "required":
+  true}, {"type": "double", "name": "tolls_amount", "required": true}, {"type": "long",
+  "name": "pu_day", "required": true}, {"type": "long", "name": "pu_hour", "required":
+  true}, {"type": "long", "name": "Airport_flag", "required": true}, {"type": "long",
+  "name": "congestion_surcharge_flag", "required": true}, {"type": "long", "name":
+  "is_weekend", "required": true}, {"type": "long", "name": "is_night", "required":
+  true}, {"type": "long", "name": "mta_tax_flag", "required": true}]}'
+source: '{"tags": {"mlflow.user": "itoumpalidis", "mlflow.source.name": "/home/itoumpalidis/work/git/nyc_taxi_tips/.venv/lib/python3.12/site-packages/ipykernel_launcher.py",
+  "mlflow.source.type": "LOCAL"}}'
+source_type: code

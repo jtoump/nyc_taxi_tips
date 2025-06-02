@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/7ee6551a78b94a7b831463fbaf7a3437/artifacts
+deleted_time: 1748867144755
+end_time: 1748867023295
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 7ee6551a78b94a7b831463fbaf7a3437
+run_name: bright-dove-258
+run_uuid: 7ee6551a78b94a7b831463fbaf7a3437
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748867011563
+status: 4
+tags: []
+user_id: itoumpalidis

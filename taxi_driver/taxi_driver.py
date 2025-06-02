@@ -189,13 +189,18 @@ class Taxidf():
 
         self.taxi_data['pu_day']  = self.taxi_data["tpep_pickup_datetime"].apply(lambda x: x.weekday())
         self.taxi_data['pu_hour'] = self.taxi_data["tpep_pickup_datetime"].apply(lambda x: x.hour)
+        
         self.taxi_data['do_day']  = self.taxi_data["tpep_dropoff_datetime"].apply(lambda x: x.weekday())
         self.taxi_data['do_hour'] = self.taxi_data["tpep_dropoff_datetime"].apply(lambda x: x.hour)
+        
         self.taxi_data['pu_date']= self.taxi_data["tpep_pickup_datetime"].apply(lambda x: str(x.date()))
         self.taxi_data['do_date']= self.taxi_data["tpep_dropoff_datetime"].apply(lambda x: str(x.date())) 
+        
         self.taxi_data['pu_month']=self.taxi_data['tpep_pickup_datetime'].apply(lambda x: x.month)
         self.taxi_data['do_month']=self.taxi_data['tpep_dropoff_datetime'].apply(lambda x: x.month)
 
+        self.taxi_data['pu_year']=self.taxi_data['tpep_pickup_datetime'].apply(lambda x: x.year)
+        self.taxi_data['do_year']=self.taxi_data['tpep_dropoff_datetime'].apply(lambda x: x.year)
 
 
     def quantile_plotting(self,axs=None):

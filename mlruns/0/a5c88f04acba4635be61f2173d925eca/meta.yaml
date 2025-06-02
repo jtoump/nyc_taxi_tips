@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/a5c88f04acba4635be61f2173d925eca/artifacts
+end_time: 1748865799369
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a5c88f04acba4635be61f2173d925eca
+run_name: auspicious-fawn-996
+run_uuid: a5c88f04acba4635be61f2173d925eca
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748865796715
+status: 3
+tags: []
+user_id: itoumpalidis

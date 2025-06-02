@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/de3dbdc1f05b4fcf8ebd3336c17c103c/artifacts
+end_time: 1748866483167
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: de3dbdc1f05b4fcf8ebd3336c17c103c
+run_name: clumsy-chimp-594
+run_uuid: de3dbdc1f05b4fcf8ebd3336c17c103c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748866478731
+status: 3
+tags: []
+user_id: itoumpalidis

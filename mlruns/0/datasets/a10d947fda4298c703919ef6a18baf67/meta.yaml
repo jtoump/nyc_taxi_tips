@@ -1,0 +1,10 @@
+digest: fc2bb1f2
+name: dataset
+profile: '{"num_rows": 339772, "num_elements": 1698860}'
+schema: '{"mlflow_colspec": [{"type": "double", "name": "fare_amount", "required":
+  true}, {"type": "long", "name": "Airport_flag", "required": true}, {"type": "double",
+  "name": "trip_distance", "required": true}, {"type": "long", "name": "congestion_surcharge_flag",
+  "required": true}, {"type": "long", "name": "mta_tax_flag", "required": true}]}'
+source: '{"tags": {"mlflow.user": "itoumpalidis", "mlflow.source.name": "/home/itoumpalidis/work/git/nyc_taxi_tips/.venv/lib/python3.12/site-packages/ipykernel_launcher.py",
+  "mlflow.source.type": "LOCAL"}}'
+source_type: code

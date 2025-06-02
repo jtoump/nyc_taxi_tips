@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/c4fc9c1df957439996531f967c17f958/artifacts
+end_time: 1748872044025
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c4fc9c1df957439996531f967c17f958
+run_name: burly-trout-49
+run_uuid: c4fc9c1df957439996531f967c17f958
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748871980027
+status: 3
+tags: []
+user_id: itoumpalidis

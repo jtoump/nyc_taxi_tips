@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/4dd53e43190c42779bed8fd60d476eda/artifacts
+end_time: 1748866488543
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4dd53e43190c42779bed8fd60d476eda
+run_name: treasured-jay-550
+run_uuid: 4dd53e43190c42779bed8fd60d476eda
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748866483759
+status: 3
+tags: []
+user_id: itoumpalidis

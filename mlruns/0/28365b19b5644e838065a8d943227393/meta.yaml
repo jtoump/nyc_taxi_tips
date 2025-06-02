@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/28365b19b5644e838065a8d943227393/artifacts
+end_time: 1748866462201
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 28365b19b5644e838065a8d943227393
+run_name: nebulous-stoat-640
+run_uuid: 28365b19b5644e838065a8d943227393
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748866457915
+status: 3
+tags: []
+user_id: itoumpalidis

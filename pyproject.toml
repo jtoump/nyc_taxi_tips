@@ -1,0 +1,21 @@
+[project]
+name = "nyc-taxi-tips"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "catboost>=1.2.8",
+    "geopandas>=1.1.0",
+    "holidays>=0.73",
+    "jupyter>=1.1.1",
+    "mlflow>=2.22.0",
+    "notebook>=7.4.3",
+    "osmnx>=2.0.3",
+    "scikit-learn>=1.6.1",
+    "scipy>=1.15.3",
+    "shap>=0.47.2",
+    "statsmodels>=0.14.4",
+    "torch>=2.7.0",
+    "torch-geometric>=2.6.1",
+]

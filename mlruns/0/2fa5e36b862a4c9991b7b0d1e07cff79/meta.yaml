@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/2fa5e36b862a4c9991b7b0d1e07cff79/artifacts
+end_time: 1748866472935
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2fa5e36b862a4c9991b7b0d1e07cff79
+run_name: orderly-lamb-37
+run_uuid: 2fa5e36b862a4c9991b7b0d1e07cff79
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748866467773
+status: 3
+tags: []
+user_id: itoumpalidis

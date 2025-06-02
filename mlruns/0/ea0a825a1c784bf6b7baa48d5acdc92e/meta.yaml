@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/ea0a825a1c784bf6b7baa48d5acdc92e/artifacts
+deleted_time: 1748865815506
+end_time: 1748865729366
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: ea0a825a1c784bf6b7baa48d5acdc92e
+run_name: invincible-rat-995
+run_uuid: ea0a825a1c784bf6b7baa48d5acdc92e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748865728543
+status: 4
+tags: []
+user_id: itoumpalidis

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/c63685888b0a43a996d9a51a0c3f4325/artifacts
+end_time: 1748866499279
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c63685888b0a43a996d9a51a0c3f4325
+run_name: peaceful-moth-147
+run_uuid: c63685888b0a43a996d9a51a0c3f4325
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748866494494
+status: 3
+tags: []
+user_id: itoumpalidis

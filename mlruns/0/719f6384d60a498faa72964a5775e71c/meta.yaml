@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/719f6384d60a498faa72964a5775e71c/artifacts
+end_time: 1748865803936
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 719f6384d60a498faa72964a5775e71c
+run_name: treasured-eel-525
+run_uuid: 719f6384d60a498faa72964a5775e71c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748865801765
+status: 3
+tags: []
+user_id: itoumpalidis

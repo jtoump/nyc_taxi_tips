@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/42ee0a8170b4475ca4910682fc2f8f67/artifacts
+end_time: 1748866427622
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 42ee0a8170b4475ca4910682fc2f8f67
+run_name: luxuriant-squid-228
+run_uuid: 42ee0a8170b4475ca4910682fc2f8f67
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748866423771
+status: 3
+tags: []
+user_id: itoumpalidis

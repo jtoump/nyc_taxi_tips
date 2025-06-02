@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/a052e4e8515d4fd3ad3c7fb7f86c24f3/artifacts
+end_time: 1748866351769
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a052e4e8515d4fd3ad3c7fb7f86c24f3
+run_name: rumbling-goat-307
+run_uuid: a052e4e8515d4fd3ad3c7fb7f86c24f3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748866349363
+status: 3
+tags: []
+user_id: itoumpalidis

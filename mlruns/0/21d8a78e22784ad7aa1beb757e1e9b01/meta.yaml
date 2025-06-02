@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/21d8a78e22784ad7aa1beb757e1e9b01/artifacts
+end_time: 1748866504616
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 21d8a78e22784ad7aa1beb757e1e9b01
+run_name: skittish-shrike-344
+run_uuid: 21d8a78e22784ad7aa1beb757e1e9b01
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748866499858
+status: 3
+tags: []
+user_id: itoumpalidis

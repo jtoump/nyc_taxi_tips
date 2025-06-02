@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/5680dee7e30c4fb7acdc8a56c6e4bf52/artifacts
+end_time: 1748866436759
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5680dee7e30c4fb7acdc8a56c6e4bf52
+run_name: aged-owl-835
+run_uuid: 5680dee7e30c4fb7acdc8a56c6e4bf52
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748866432590
+status: 3
+tags: []
+user_id: itoumpalidis

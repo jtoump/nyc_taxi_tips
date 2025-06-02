@@ -1,0 +1,2 @@
+[('cat', Pipeline(steps=[('encoder',
+                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))]), ['Airport_flag', 'congestion_surcharge_flag', 'mta_tax_flag']), ('num', 'passthrough', ['fare_amount'])]

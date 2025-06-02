@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/a14a7c24565048d0a711bc0618fca7e4/artifacts
+deleted_time: 1748865815506
+end_time: 1748865728539
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: a14a7c24565048d0a711bc0618fca7e4
+run_name: lyrical-mare-308
+run_uuid: a14a7c24565048d0a711bc0618fca7e4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748865727835
+status: 4
+tags: []
+user_id: itoumpalidis

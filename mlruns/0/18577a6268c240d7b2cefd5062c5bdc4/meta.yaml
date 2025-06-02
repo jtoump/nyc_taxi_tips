@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/18577a6268c240d7b2cefd5062c5bdc4/artifacts
+end_time: 1748865852608
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 18577a6268c240d7b2cefd5062c5bdc4
+run_name: whimsical-hound-531
+run_uuid: 18577a6268c240d7b2cefd5062c5bdc4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748865848902
+status: 3
+tags: []
+user_id: itoumpalidis

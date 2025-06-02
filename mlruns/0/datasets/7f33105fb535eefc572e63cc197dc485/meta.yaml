@@ -1,0 +1,8 @@
+digest: 064aedce
+name: dataset
+profile: '{"num_rows": 1359084, "num_elements": 1359084}'
+schema: '{"mlflow_colspec": [{"type": "double", "name": "fare_amount", "required":
+  true}]}'
+source: '{"tags": {"mlflow.user": "itoumpalidis", "mlflow.source.name": "/home/itoumpalidis/work/git/nyc_taxi_tips/.venv/lib/python3.12/site-packages/ipykernel_launcher.py",
+  "mlflow.source.type": "LOCAL"}}'
+source_type: code

@@ -1,0 +1,10 @@
+[('preprocess', ColumnTransformer(transformers=[('cat',
+                                 Pipeline(steps=[('encoder',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse_output=False))]),
+                                 ['pu_day', 'pu_hour', 'Airport_flag',
+                                  'congestion_surcharge_flag', 'is_weekend',
+                                  'is_night', 'mta_tax_flag']),
+                                ('num', 'passthrough',
+                                 ['fare_amount', 'trip_distance',
+                                  'total_amount', 'extra', 'tolls_amount'])])), ('model', <catboost.core.CatBoostRegressor object at 0x7d6c3f05b710>)]

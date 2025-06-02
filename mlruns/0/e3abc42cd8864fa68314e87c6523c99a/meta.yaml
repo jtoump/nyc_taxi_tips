@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/e3abc42cd8864fa68314e87c6523c99a/artifacts
+end_time: 1748866493921
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e3abc42cd8864fa68314e87c6523c99a
+run_name: handsome-crow-45
+run_uuid: e3abc42cd8864fa68314e87c6523c99a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748866489115
+status: 3
+tags: []
+user_id: itoumpalidis

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/9916de89d2964d6198dc8df267d84402/artifacts
+end_time: 1748865844400
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9916de89d2964d6198dc8df267d84402
+run_name: valuable-mouse-684
+run_uuid: 9916de89d2964d6198dc8df267d84402
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748865840830
+status: 3
+tags: []
+user_id: itoumpalidis
